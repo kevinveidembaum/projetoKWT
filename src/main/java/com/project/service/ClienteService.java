@@ -31,9 +31,15 @@ public class ClienteService {
 
         if (clienteExistente.isPresent()) {
             Cliente cliente = clienteExistente.get();
+
             cliente.setNome(clienteAtualizado.getNome());
             cliente.setEmail(clienteAtualizado.getEmail());
             cliente.setTelefone(clienteAtualizado.getTelefone());
+            cliente.setCnpj(clienteAtualizado.getCnpj());
+            cliente.setEndereco(clienteAtualizado.getEndereco());
+            cliente.setFormapagto(clienteAtualizado.getFormapagto());
+            cliente.setStatus(clienteAtualizado.getStatus());
+
             return clienteRepository.save(cliente);
         } else {
             throw new RuntimeException("Cliente não encontrado com ID: " + id);
